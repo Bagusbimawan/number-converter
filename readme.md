@@ -1,64 +1,119 @@
-# Konversi Bilangan
+# Number Converter
 
-**Tugas Pengganti UTS**
+Program sederhana untuk mengkonversi bilangan ke berbagai sistem bilangan menggunakan bahasa Go.
 
-Nama: Bagus Bimawan Sembodo  
-NPM: 10125182
+Program ini dibuat untuk memenuhi tugas UTS pengganti.
 
-## Tentang Program
+## Identitas
 
-Program ini merupakan program sederhana yang dibuat menggunakan bahasa Go untuk mengonversi bilangan ke beberapa sistem bilangan, yaitu desimal, biner, oktal, dan hexadecimal.
+- **Nama:** Bagus Bimawan Sembodo
+- **NPM:** 10125182
 
-Pengguna dapat memasukkan angka dengan prefix tertentu untuk menentukan jenis bilangan yang digunakan. Jika tidak menggunakan prefix, angka akan dianggap sebagai desimal.
+## Fitur
 
-## Cara Penggunaan
+- Konversi bilangan desimal.
+- Konversi bilangan biner.
+- Konversi bilangan oktal.
+- Konversi bilangan heksadesimal.
+- Mendukung bilangan negatif menggunakan 8-bit Two's Complement.
+- Mendukung bilangan pecahan (Floating Point) untuk konversi ke Binary.
+- Validasi input.
+- Program dapat dijalankan berulang kali.
 
-Prefix yang digunakan:
+## Format Input
 
-- `0b` untuk Biner
-- `0o` untuk Oktal
-- `0x` untuk Hexadecimal
-- Tanpa prefix untuk Desimal
+| Prefix | Sistem Bilangan |
+|---|---|
+| `0b` | Biner |
+| `0o` | Oktal |
+| `0x` | Heksadesimal |
+| Tanpa prefix | Desimal |
 
 Contoh input:
 
 ```text
-15
-0b1111
-0o17
-0xF
+10
+-5
+10.625
+0b1010
+0o12
+0xA
 ```
 
-Program akan menampilkan hasil konversi dari angka yang dimasukkan ke dalam empat sistem bilangan.
+## Contoh Output
 
-## Menjalankan Program
-
-Pastikan Go sudah terinstal, kemudian jalankan program melalui terminal:
-
-```bash
-go run main.go
-```
-
-Untuk keluar dari program, masukkan `q`.
-
-## Contoh Hasil
+### Bilangan negatif
 
 Input:
 
 ```text
-15
+-5
 ```
 
 Output:
 
 ```text
-Jenis: Desimal
-Desimal      : 15
-Biner        : 1111
-Oktal        : 17
-Heksadesimal : F
+Desimal      : -5
+Biner        : 11111011
+Oktal        : 373
+Heksadesimal : FB
 ```
+
+Representasi bilangan negatif menggunakan 8-bit Two's Complement.
+
+### Floating Point
+
+Input:
+
+```text
+10.625
+```
+
+Output:
+
+```text
+Desimal      : 10.625
+Biner        : 1010.101
+Oktal        : Integer saja
+Heksadesimal : Integer saja
+```
+
+Konversi Floating Point dilakukan dengan memisahkan bagian integer dan bagian pecahan.
+
+## Batasan Program
+
+- Integer menggunakan representasi 8-bit signed dengan range -128 sampai 127.
+- Two's Complement digunakan untuk representasi bilangan integer negatif.
+- Floating Point didukung untuk konversi ke Binary.
+- Konversi Oktal dan Heksadesimal hanya untuk integer.
+- Konversi bagian pecahan Binary dibatasi hingga 10 digit.
+
+## Cara Menjalankan
+
+Pastikan Go sudah terinstall.
+
+Clone repository:
+
+```bash
+git clone https://github.com/Bagusbimawan/number-converter.git
+```
+
+Masuk ke folder project:
+
+```bash
+cd number-converter
+```
+
+Jalankan program:
+
+```bash
+go run main.go
+```
+
+## Teknologi
+
+- Go (Golang)
 
 ## Penutup
 
-Program ini dibuat sebagai bagian dari tugas pengganti UTS untuk mempelajari konversi sistem bilangan menggunakan bahasa Go.
+Program ini dibuat untuk memahami sistem bilangan, proses konversi bilangan, representasi bilangan negatif menggunakan Two's Complement, serta konversi bilangan pecahan ke Binary.
